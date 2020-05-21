@@ -6,9 +6,10 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class HomePage(Page):
+    """Die Willkommensseite"""
 
-    jumbotronTitle = models.CharField(max_length=30, blank= False, null= True)
-    jumbotronSubtitle = models.CharField(max_length=200, blank= False, null= True)
+    jumbotronTitle = models.CharField(max_length=30, blank=False, null=True)
+    jumbotronSubtitle = models.CharField(max_length=200, blank=False, null=True)
     jumbotronImage = models.ForeignKey("wagtailimages.Image",
                                        null=True,
                                        blank=True,

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block banner %}
+    <div class="jumbotron jumbotron-fluid text-light py-5 d-flex align-items-centre cc-home-banner"
+         style="background: linear-gradient(180.43deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.20) 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-9">
+                    <h1 class="display-3 cc-home-banner-title">{{ page.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container ">
+        <div class="row row-cols-1 row-cols-md-3">
+            {% for i in "1234567" %}
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title #{{ i }}</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
