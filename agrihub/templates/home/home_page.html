@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+    <div class="jumbotron">
+      <h1 class="display-4">{{ self.jumbotronTitle }}</h1>
+      <p class="lead">{{ self.jumbotronSubtitle }}</p>
+      <hr class="my-4">
+      <p>Diese Web-Applikation nutzt Django 3.0.6 und das CMS ist über Wagtail realisiert.</p>
+      <a class="btn btn-primary btn-lg" href="/admin" role="button">Admin öffnen</a>
+    </div>
+
+
+
+
+
+
+{% endblock content %}
