@@ -21,6 +21,8 @@
 <div class="container">
     <h1>{{ page.blogTeaser }}</h1>
     <hr>
-    <p>{{ page.blogContent }}</p>
+    {% for block in page.body %}
+        {% include_block block with block_id=block.id %}
+    {% endfor %}
 </div>
 {% endblock content %}

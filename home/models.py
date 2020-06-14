@@ -16,6 +16,8 @@ class HomePage(Page):
                                        on_delete=models.SET_NULL,
                                        related_name="+")
 
+
+
     max_count = 1
 
     content_panels = Page.content_panels + [
