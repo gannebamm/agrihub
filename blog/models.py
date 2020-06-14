@@ -52,6 +52,14 @@ class BlogListingPage(Page):
     """Liste der Blogposts"""
     max_count_per_parent = 1
 
+    # add blogposts as children to contexts
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['posts'] = self.get_children().filter(
+            live=True)
+
+        return context
+
     class Meta:
         verbose_name = "Blogliste"
         verbose_name_plural = "Blogposts"

@@ -18,14 +18,15 @@
 {% block content %}
     <div class="container ">
         <div class="row row-cols-1 row-cols-md-3">
-            {% for i in "1234567" %}
+            {% for post in posts %}
                 <div class="col mb-4">
                     <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
+                        {% image post.blogpage.blogImage fill-300x200 as blog_img %}
+                        <img src="{{ blog_img.url }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title #{{ i }}</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.blogpage.blogTeaser }}</p>
+                            <a href={{ post.url }} class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
