@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block banner %}
+    {% image page.image fill-1920x700 as bg_img %}
+    <div class="jumbotron jumbotron-fluid text-light py-5 d-flex align-items-centre cc-home-banner"
+         style="background: linear-gradient(180.43deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.20) 100%),
+                 url({{ bg_img.url }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-9">
+                    <h1 class="display-3 cc-home-banner-title">{{ page.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% for block in page.body %}
+        {% include_block block with block_id=block.id %}
+    {% endfor %}
+</div>
+{% endblock content %}
