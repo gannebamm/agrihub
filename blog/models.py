@@ -17,8 +17,8 @@ class BlogPage(Page):
                                   blank=True,
                                   on_delete=models.SET_NULL,
                                   related_name="+",
-                                  help_text="this image will be displayed in the listing page and gets cropped to "
-                                            "300x200 "
+                                  help_text="this image will also be displayed in the listing page and over there "
+                                            "gets cropped to ~300x200 "
                                   )
 
 
@@ -42,10 +42,9 @@ class BlogPage(Page):
         StreamFieldPanel("body", classname="Full"),
     ]
 
-
-class Meta:
-    verbose_name = "Blogpost"
-    verbose_name_plural = "Blogposts"
+    class Meta:
+        verbose_name = "Blogpost"
+        verbose_name_plural = "Blogposts"
 
 
 class BlogListingPage(Page):
@@ -62,4 +61,4 @@ class BlogListingPage(Page):
 
     class Meta:
         verbose_name = "Blogliste"
-        verbose_name_plural = "Blogposts"
+        verbose_name_plural = "Bloglisten"
