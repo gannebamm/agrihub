@@ -41,14 +41,21 @@ class PersonVCards(blocks.StructBlock):
         label = "VCards Persons"
 
 
-class PartnerVCard(blocks.StructBlock):
-    """Block to render a partner vcard."""
+class PartnerVCards(blocks.StructBlock):
+    """Block to render a partner vcards as listing."""
 
-    name = blocks.CharBlock(required=True, help_text="Add your name")
-    logo = ImageChooserBlock(required=True, help_text="Institutions logo rendered in card")
-    website = blocks.URLBlock(required=True, help_text="link to institutions website")
+    cards = blocks.ListBlock(
+            blocks.StructBlock(
+                [
+                    ("name", blocks.CharBlock(required=True, help_text="Add your name")),
+                    ("description", blocks.TextBlock(required=True, max_length=250, help_text="Write a short (250 characters) description")),
+                    ("logo", ImageChooserBlock(required=True, help_text="Institutions logo rendered in card cropped to 300x200")),
+                    ("website", blocks.URLBlock(required=True, help_text="link to institutions website")),
+                ]
+            )
+        )
 
     class Meta:  # noqa
-        template = "agrihub/vcard_partner_block.html"
+        template = "agrihub/vcards_partner_block.html"
         icon = "group"
-        label = "VCard Partner"
+        label = "VCards Partner"

@@ -8,7 +8,7 @@ from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock,
     ListWithImagesBlock, ThumbnailGalleryBlock, ChartBlock, MapBlock, ImageSliderBlock
 
 # Create your models here.
-from agrihub.blocks import PersonVCards, Card, PartnerVCard
+from agrihub.blocks import PersonVCards, Card, PartnerVCards
 
 
 class FlexPage(Page):
@@ -36,7 +36,7 @@ class FlexPage(Page):
         ('image_slider', ImageSliderBlock()),
         ('person_vcard', PersonVCards()),
         ('misc_card', Card()),
-        ('partner_vcard', PartnerVCard()),
+        ('partner_vcard', PartnerVCards()),
     ], blank=True)
 
     content_panels = Page.content_panels + [
