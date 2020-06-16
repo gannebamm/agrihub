@@ -1,0 +1,6 @@
+{% load wagtailcore_tags %}
+
+<div class="alert alert-{{ self.type }}" role="alert">
+    <h4 class="alert-heading">{{ self.title}}</h4>
+    {{self.text}}
+</div>
