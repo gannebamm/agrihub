@@ -1,35 +1,42 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/gannebamm/agrihub/tree/gannebamm/gitpod-setup)
 
-# Installation (Dev / demo)
+# Installation obsolete
 
-_Since installing Python and the creation of virtual environments are plattform
-dependent they are not written as bash/powershell/cmd commands. Please refer
-to the corresponding installation guidelines for your plattform._ 
+_Since we are using gitpod ther is nothing to install_
 
-## Python and virtual env
+## Python and virtual env not needed
 
-* install python3(.8) and virtualenv
-* create a virtual environment (venv)
-* activate the venv
-* clone the repository (https://git-dmz.thuenen.de/nfdi4agri/agrihub.git)
-* navigate to project root and install needed packages `pip install -r requirements.txt`
+* gitpod uses python 3.8 outside a virtual env (since it is a docker container)
 
-## Start Django application
+## The Django application allready runs
 
-See if the migration graph is complete:
+The console should show if the migration graph is complete:
 
 ``python ./manage.py makemigrations``
 
-Apply migrations to the database:
+And that migrations were applied to the database:
 
 ``python ./manage.py migrate``
 
-Create a superuser for the Django / Wagtail admin:
+Also a superuser for the Django / Wagtail admin was created:
 
 ``python ./manage.py createsuperuser``
 
-you will be prompted for a username and password.
+the username is `admin` and the password is `changeme`. 
+ 
+A python dev server was started at port 8000:
 
-Start the python development server:
+``python ./manage.py runserver 0.0.0.0:8000``
 
-``python ./manage.py runserver``
+# straight to the funsies
+
+Your browser should have opened a tab. Please login at `https://your-container-id.gitpod.io/admin`
+
+There you have to:
+
+* delete the old root page
+* create a new root page which is a translatable page
+* go to setting and define the new root as default site
+* add english as second language
+* create a subpage of the root as welcome page (ger / eng)
+* create additional subpages with content
