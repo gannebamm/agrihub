@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/gannebamm/agrihub)
+
 # Installation (Dev / demo)
 
 _Since installing Python and the creation of virtual environments are plattform
