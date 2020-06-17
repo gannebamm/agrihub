@@ -6,9 +6,10 @@ from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock, CroppedImagesWithTextBlock, \
     ListWithImagesBlock, ThumbnailGalleryBlock, ChartBlock, MapBlock, ImageSliderBlock
+from wagtailtrans.models import TranslatablePage
 
 
-class BlogPage(Page):
+class BlogPage(TranslatablePage):
     """Einzelner Blogpost"""
     # title wird geerbt
     blogTeaser = models.CharField(max_length=50, null=True, blank=False)
@@ -18,7 +19,7 @@ class BlogPage(Page):
                                   on_delete=models.SET_NULL,
                                   related_name="+",
                                   help_text="this image will also be displayed in the listing page and over there "
-                                            "gets cropped to ~300x200 "
+                                            "gets cropped to ~540x320 "
                                   )
 
 
@@ -47,15 +48,14 @@ class BlogPage(Page):
         verbose_name_plural = "Blogposts"
 
 
-class BlogListingPage(Page):
+class BlogListingPage(TranslatablePage):
     """Liste der Blogposts"""
     max_count_per_parent = 1
 
     # add blogposts as children to contexts
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
-        context['posts'] = self.get_children().filter(
-            live=True)
+        context['posts'] = BlogPage.objects.child_of(self).filter(live=True)
 
         return context
 

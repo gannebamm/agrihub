@@ -31,6 +31,10 @@ INSTALLED_APPS = [
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.modeladmin',
+    'wagtail.contrib.settings',  # Only required when WAGTAILTRANS_LANGUAGES_PER_SITE=True
+
+
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
     'taggit',
     'wagtailfontawesome',
     'wagtail_blocks',
+    'wagtailtrans',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,14 +60,16 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
+    'wagtail.core.middleware.SiteMiddleware',
+    'wagtailtrans.middleware.TranslationMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 

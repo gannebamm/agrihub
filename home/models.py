@@ -9,9 +9,10 @@ from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock,
     ListWithImagesBlock, ThumbnailGalleryBlock, ImageSliderBlock
 
 from agrihub.blocks import Announcement, Cards4xn
+from wagtailtrans.models import TranslatablePage
 
 
-class HomePage(Page):
+class HomePage(TranslatablePage):
     """Die Willkommensseite"""
 
     jumbotronTitle = models.CharField(max_length=30, blank=False, null=True)

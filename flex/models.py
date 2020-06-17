@@ -7,11 +7,12 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock, CroppedImagesWithTextBlock, \
     ListWithImagesBlock, ThumbnailGalleryBlock, ChartBlock, MapBlock, ImageSliderBlock
 
-# Create your models here.
+from wagtailtrans.models import TranslatablePage
+
 from agrihub.blocks import PersonVCards, Cards4xn, PartnerVCards
 
 
-class FlexPage(Page):
+class FlexPage(TranslatablePage):
     """flexible content page with streamfields"""
 
     image = models.ForeignKey("wagtailimages.Image",
